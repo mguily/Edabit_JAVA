@@ -219,8 +219,7 @@ public class Hard {
             int menorDif = Integer.MAX_VALUE;
             for (Chapter capitulo : chapter) {
                 int difActual = Math.abs(capitulo.getPage() - page);
-                if (capituloCercano == null || difActual < menorDif ||
-                        (menorDif == difActual && capitulo.getPage() > capituloCercano.getPage())) {
+                if (capituloCercano == null || difActual < menorDif || (menorDif == difActual && capitulo.getPage() > capituloCercano.getPage())) {
                     capituloCercano = capitulo;
                     menorDif = difActual;
                 }
