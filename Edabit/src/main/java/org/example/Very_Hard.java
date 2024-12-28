@@ -32,17 +32,17 @@ public class Very_Hard {
     public static String[] split(String str) {
         List<String> result = new ArrayList<>();
         int balance = 0;
-        StringBuilder currentCluster = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (char c : str.toCharArray()) {
-            currentCluster.append(c);
+            sb.append(c);
             if (c == '(') {
                 balance++;
             } else if (c == ')') {
                 balance--;
             }
             if (balance == 0) {
-                result.add(currentCluster.toString());
-                currentCluster.setLength(0);
+                result.add(sb.toString());
+                sb.setLength(0);
             }
         }
         return result.toArray(new String[0]);
