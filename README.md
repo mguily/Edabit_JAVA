@@ -1,2 +1,3 @@
 # Edabit_JAVA
-Retos que voy completando en Edabit.
+Aquí subo los retos que voy completando en Edabit.
+Los puedes encontrar en la carpeta Edabit/src/main/java/org/example.
