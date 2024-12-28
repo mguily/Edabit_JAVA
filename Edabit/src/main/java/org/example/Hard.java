@@ -205,4 +205,41 @@ public class Hard {
         BigInteger divider = BigInteger.valueOf(2L * n + 1);
         return base.mod(divider).equals(BigInteger.valueOf(0));
     }
+
+    /*
+    Create a function that returns which chapter is nearest to the page you're on. If two chapters are equidistant,
+     return the chapter with the higher page number.
+
+     nearestChapter(new Chapter[] { new Chapter("Chapter 1a", 1), new Chapter("Chapter 1b", 5) }, 3) ➞ "Chapter 1b"
+     */
+
+    public static class BookChapter {
+        public static String nearestChapter(Chapter[] chapter, int page) {
+            Chapter capituloCercano = null;
+            int menorDif = Integer.MAX_VALUE;
+            for (Chapter capitulo : chapter) {
+                int difActual = Math.abs(capitulo.getPage() - page);
+                if (capituloCercano == null || difActual < menorDif ||
+                        (menorDif == difActual && capitulo.getPage() > capituloCercano.getPage())) {
+                    capituloCercano = capitulo;
+                    menorDif = difActual;
+                }
+            }
+            return capituloCercano != null ? capituloCercano.getName() : null;
+        }
+    }
+
+    public static class Chapter {
+        private String name;
+        private int page;
+
+        public Chapter(String name, int page) {
+            this.name = name;
+            this.page = page;
+        }
+        public String getName() { return name; }
+        public void setName(String name) { this.name = name; }
+        public int getPage() { return page; }
+        public void setPage(int page) { this.page = page; }
+    }
 }
