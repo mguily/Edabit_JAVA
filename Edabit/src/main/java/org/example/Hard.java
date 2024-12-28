@@ -1,5 +1,6 @@
 package org.example;
 
+import java.math.*;
 import java.util.*;
 
 public class Hard {
@@ -187,5 +188,21 @@ public class Hard {
 
     private static double lado(int x1, int y1, int x2, int y2) {
         return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    }
+
+    /*
+    Given a positive integer n and if 1 plus 2 times n exactly divides 1 plus 2 raised to the power n, then n is said to be a Curzon number.
+
+    Write a function that determines whether a number is a Curzon number or not.
+
+    isCurzon(10) ➞ false
+    // 2 ** 10 + 1 = 1025
+    // 2 * 10 + 1 = 21
+    // 1025 is not a multiple of 21
+     */
+    public static boolean isCurzon(int n) {
+        BigInteger base = BigInteger.valueOf(2).pow(n).add(BigInteger.valueOf(1));
+        BigInteger divider = BigInteger.valueOf(2L * n + 1);
+        return base.mod(divider).equals(BigInteger.valueOf(0));
     }
 }
