@@ -241,4 +241,15 @@ public class Hard {
         public int getPage() { return page; }
         public void setPage(int page) { this.page = page; }
     }
+
+    /*
+    An array is positive dominant if it contains strictly more unique positive values than unique negative values.
+    Write a function that returns true if an array is positive dominant, false, otherwise.
+     */
+
+    public static boolean isPositiveDominant(int[] n) {
+        long negativos = Arrays.stream(n).filter(x -> x < 0).distinct().count();
+        long positivos = Arrays.stream(n).filter(x -> x > 0).distinct().count();
+        return positivos > negativos;
+    }
 }
