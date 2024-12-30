@@ -6,7 +6,8 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        int[] ejemplo = {1, 2, -3, -1, -3, -4};
-        System.out.println(Hard.isPositiveDominant(ejemplo));
+        int[] you = {2, 5, 2, 6, 9};
+        int[] opp = {3, 7, 3, 1, 2};
+        System.out.println(Hard.winRound(you, opp));
     }
 }

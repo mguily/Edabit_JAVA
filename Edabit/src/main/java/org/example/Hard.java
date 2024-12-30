@@ -2,6 +2,7 @@ package org.example;
 
 import java.math.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Hard {
     /*
@@ -251,5 +252,22 @@ public class Hard {
         long negativos = Arrays.stream(n).filter(x -> x < 0).distinct().count();
         long positivos = Arrays.stream(n).filter(x -> x > 0).distinct().count();
         return positivos > negativos;
+    }
+
+    /*
+    You have a pack of 5 randomly numbered cards, which can range from 0-9.
+    You can win if you can produce a higher two-digit number from your cards than your opponent.
+    Return true if your cards win that round.
+
+    winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2]) ➞ true
+    // Your cards can make the number 96
+    // Your opponent can make the number 73
+    // You win the round since 96 > 73
+     */
+    public static boolean winRound(int[] you, int[] opp) {
+        Arrays.sort(you); Arrays.sort(opp);
+        int mio = you[you.length - 1] * 10 + you[you.length - 2];
+        int suyo = opp[opp.length - 1] * 10 + opp[opp.length - 2];
+        return mio > suyo;
     }
 }
