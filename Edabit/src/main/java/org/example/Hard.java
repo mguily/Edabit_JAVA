@@ -270,4 +270,18 @@ public class Hard {
         int suyo = opp[opp.length - 1] * 10 + opp[opp.length - 2];
         return mio > suyo;
     }
+
+    /*
+    he left shift operation is similar to multiplication by powers of two, thus, the process is repetitive and can be done recursively.
+
+    Sample calculation using the left shift operator (<<):
+
+    10 << 3 = 10 * 2^3 = 10 * 8 = 80
+    -32 << 2 = -32 * 2^2 = -32 * 4 = -128
+    5 << 2 = 5 * 2^2 = 5 * 4 = 20
+    Write a recursive function that mimics (without the use of <<) the left shift operator and returns the result from the two given integers.`
+     */
+    public static int shiftToLeft(int x, int y) {
+        return (y > 0) ? 2 * shiftToLeft(x, y-1) : x;
+    }
 }
