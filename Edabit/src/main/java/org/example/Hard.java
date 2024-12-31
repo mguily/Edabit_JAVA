@@ -2,6 +2,7 @@ package org.example;
 
 import java.math.*;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Hard {
 
@@ -284,5 +285,18 @@ public class Hard {
         int mio = you[you.length - 1] * 10 + you[you.length - 2];
         int suyo = opp[opp.length - 1] * 10 + opp[opp.length - 2];
         return mio > suyo;
+    }
+
+    /*
+    Given an array of cities and populations, return an array where all populations are rounded to the nearest million.
+     */
+
+    public static Object[] millionsRounding(Object[] cities) {
+        return Arrays.stream(cities).map(ciudad -> {
+            Object[] elementos = (Object[]) ciudad;
+            String nombre = (String) elementos[0];
+            long poblacionAjustada = Math.round((long) elementos[1] / 1000000.0) * 1000000L;
+            return new Object[]{nombre, poblacionAjustada};
+        }).toArray();
     }
 }
