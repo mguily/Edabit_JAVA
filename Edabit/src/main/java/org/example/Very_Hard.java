@@ -2,12 +2,45 @@ package org.example;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Very_Hard {
 
     /*LEER ESTO -------------------------------------------------------------------------------------------------------
         Siempre dejo una pequeña explicacion de la solucion que realizo en los retos de tipo Very Hard.
      */
+
+    /*
+    Write a function that takes in three parameters: r, c, i, where:
+
+    r and c are the number of rows and columns to initialize a zero matrix.
+    i represents the array of incrementing operations (+1).
+    And returns the resulting matrix after applying all the increment operations. Each increment operation will add 1
+    to the rows or columns specified in the incrementing array.
+
+    final(3, 3, ["2r", "2c", "1r", "0c"])
+
+    [1, 0, 1],
+    [2, 1, 2],
+    [2, 1, 2]
+     */
+
+    public static int[][] increment(int r, int c, String[] i) {
+        int[][] solucion = new int[r][c];
+        for (String movimiento : i) {
+            int numero = Character.getNumericValue(movimiento.charAt(0));
+            char direccion = movimiento.charAt(1);
+            if (direccion == r) IntStream.range(0, c).forEach(fila -> solucion[numero][fila]++);
+            else IntStream.range(0, r).forEach(columna -> solucion[columna][numero]++);
+        }
+        return solucion;
+        // (Para este problema he tenido que apoyarme en IA ya que no controlaba muy bien la clase IntStream)
+        /*
+        El funcionamiento en realidad es muy simple, del array de movimientos extraemos cada indice y direccion.
+        Si la direccion es r, sumamos un valor a cada columna de la fila indice.
+        Si la direccion es c, sumamos un valor a cada fila de la columna indice.
+         */
+    }
 
     /*
     Write a function that counts how many concentric layers a rug has.
@@ -124,15 +157,4 @@ public class Very_Hard {
         return 1 + multiplicativePersistence(nuevoN);
         // Convierto int a un array de chars, parseo cada char a un numero y los multiplico, utilizo recursividad hasta que queda un solo digito para n.
     }
-
-    /*
-    Write a function that takes in three parameters: r, c, i, where:
-
-    r and c are the number of rows and columns to initialize a zero matrix.
-    i represents the array of incrementing operations (+1).
-    And returns the resulting matrix after applying all the increment operations. Each increment operation will add 1
-    to the rows or columns specified in the incrementing array.
-     */
-
-    // Pendiente
 }

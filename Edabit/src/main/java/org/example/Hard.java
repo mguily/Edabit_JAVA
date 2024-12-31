@@ -2,9 +2,24 @@ package org.example;
 
 import java.math.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Hard {
+
+    /*
+    The left shift operation is similar to multiplication by powers of two, thus, the process is repetitive and can be done recursively.
+
+    Sample calculation using the left shift operator (<<):
+
+    10 << 3 = 10 * 2^3 = 10 * 8 = 80
+    -32 << 2 = -32 * 2^2 = -32 * 4 = -128
+    5 << 2 = 5 * 2^2 = 5 * 4 = 20
+    Write a recursive function that mimics (without the use of <<) the left shift operator and returns the result from the two given integers.`
+     */
+    public static int shiftToLeft(int x, int y) {
+        return (y > 0) ? 2 * shiftToLeft(x, y-1) : x;
+        // Se resuelve de forma simple sin recursividad, al tener que aplicarla obligatoriamente, es mas complicado.
+    }
+
     /*
     Create a function that will test if a string is a valid PIN or not via a regular expression.
 
@@ -269,19 +284,5 @@ public class Hard {
         int mio = you[you.length - 1] * 10 + you[you.length - 2];
         int suyo = opp[opp.length - 1] * 10 + opp[opp.length - 2];
         return mio > suyo;
-    }
-
-    /*
-    he left shift operation is similar to multiplication by powers of two, thus, the process is repetitive and can be done recursively.
-
-    Sample calculation using the left shift operator (<<):
-
-    10 << 3 = 10 * 2^3 = 10 * 8 = 80
-    -32 << 2 = -32 * 2^2 = -32 * 4 = -128
-    5 << 2 = 5 * 2^2 = 5 * 4 = 20
-    Write a recursive function that mimics (without the use of <<) the left shift operator and returns the result from the two given integers.`
-     */
-    public static int shiftToLeft(int x, int y) {
-        return (y > 0) ? 2 * shiftToLeft(x, y-1) : x;
     }
 }
