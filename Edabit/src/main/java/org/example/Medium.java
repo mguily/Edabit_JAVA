@@ -1,7 +1,7 @@
 package org.example;
 
+import java.io.IOException;
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class Medium {
     /*
@@ -14,10 +14,11 @@ public class Medium {
     Examples
     warOfNumbers([2, 8, 7, 5]) ➞ 2
      */
-    public static void warOfNumbers(int[]numbers){
+    public static void warOfNumbers(int[] numbers) {
         int resultado = Arrays.stream(numbers).reduce(0, (a, b) -> b % 2 == 0 ? a + b : a - b);
         if (resultado == 0) System.out.println("Empate");
-        else if (resultado < 0) System.out.println("Ganan los impares"); else System.out.println("Ganan los pares");
+        else if (resultado < 0) System.out.println("Ganan los impares");
+        else System.out.println("Ganan los pares");
         // Se podria hacer sin usar un Stream pero me propuse hacerlo en el meno numero de lineas posibles.
         // He cambiado un poco la funcion para determinar ganador.
     }
@@ -26,8 +27,22 @@ public class Medium {
     until the array length reaches length.
      */
     public static int[] arrayOfMultiples(int num, int length) {
-        int[] solution  = new int[length];
-        for (int x = 0; x < length; x++) solution[x] = num * (x+1);
+        int[] solution = new int[length];
+        for (int x = 0; x < length; x++) solution[x] = num * (x + 1);
         return solution;
+    }
+
+    /*
+    Create a function that takes two number strings and returns their sum as a string.
+    add("111", "111") ➞ "222"
+    add("10", "80") ➞ "90"
+    add("", "20") ➞ "Invalid Operation"
+     */
+    public static String add(String a, String b) {
+        try {
+            return String.valueOf(Integer.parseInt(a) + Integer.parseInt(b));
+        } catch (NumberFormatException n) {
+            return "Invalid Operation";
+        }
     }
 }
