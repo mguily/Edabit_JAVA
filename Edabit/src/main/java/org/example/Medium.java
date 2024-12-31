@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class Medium {
     /*
@@ -14,7 +15,7 @@ public class Medium {
     warOfNumbers([2, 8, 7, 5]) ➞ 2
      */
     public static void warOfNumbers(int[]numbers){
-        int resultado = Arrays.stream(numbers).filter(n -> n % 2 == 0).sum() - Arrays.stream(numbers).filter(n -> n % 2 != 0).sum();
+        int resultado = Arrays.stream(numbers).reduce(0, (a, b) -> b % 2 == 0 ? a + b : a - b);
         if (resultado == 0) System.out.println("Empate");
         else if (resultado < 0) System.out.println("Ganan los impares"); else System.out.println("Ganan los pares");
         // Se podria hacer sin usar un Stream pero me propuse hacerlo en el meno numero de lineas posibles.
