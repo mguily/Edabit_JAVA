@@ -2,9 +2,18 @@ package org.example;
 
 import java.math.*;
 import java.util.*;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class Hard {
+
+    /*
+    Create a function that will remove any repeated character(s) in a word passed to the function.
+    Not just consecutive characters, but characters repeating anywhere in the string.
+     */
+
+    public static String unrepeated(String str) {
+        return str.chars().distinct().mapToObj(c -> Character.toString((char) c)).collect(Collectors.joining());
+    }
 
     /*
     The left shift operation is similar to multiplication by powers of two, thus, the process is repetitive and can be done recursively.

@@ -124,7 +124,6 @@ public class Very_Hard {
         public String getTimestamp() { return timestamp; }
     }
 
-
     public static Map<String, Double> filtrarTransacciones(List<Transaccion> lista) {
         return lista.stream().filter(x -> x.getAmount() > 1000).collect(Collectors.groupingBy(time -> time.getTimestamp().substring(5, 7) + "-" +
                         time.getTimestamp().substring(0,4), Collectors.summingDouble(Transaccion::getAmount)));
