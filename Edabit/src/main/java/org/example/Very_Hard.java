@@ -164,7 +164,7 @@ public class Very_Hard {
      */
 
     public static String alphabetIndex(String[] alphabet, String s) {
-        for (int x = alphabet.length - 1; x > 0; x--) if (s.toLowerCase().contains(alphabet[x].toLowerCase())) return (x + 1) + alphabet[x];
+        for (int x = alphabet.length - 1; x > 0; x--) if (s.toLowerCase().contains(alphabet[x])) return (x + 1) + alphabet[x];
         return null;
 
         // Recorro el alfabeto por detras, el primero que coincida es la letra de mayor indice.
