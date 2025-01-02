@@ -16,6 +16,27 @@ public class Hard {
     }
 
     /*
+    Create a function which replaces all the x's in the string in the following ways:
+
+    Replace all x's with "cks" UNLESS:
+
+    The word begins with "x", therefore replace it with "z".
+    The word is just the letter "x", therefore replace it with "ecks".
+     */
+
+    public static String xPronounce(String sentence) {
+        String[] str = sentence.split(" ");
+        StringBuilder sb = new StringBuilder();
+        for (String s : str) {
+            if (s.equals("x")) sb.append("ecks");
+            else if (s.startsWith("x")) sb.append("z").append(s.substring(1));
+            else sb.append(s.replaceAll("x", "cks"));
+            sb.append(" ");
+        }
+        return sb.toString();
+    }
+
+    /*
     The left shift operation is similar to multiplication by powers of two, thus, the process is repetitive and can be done recursively.
 
     Sample calculation using the left shift operator (<<):
