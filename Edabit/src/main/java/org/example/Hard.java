@@ -299,4 +299,15 @@ public class Hard {
             return new Object[]{nombre, poblacionAjustada};
         }).toArray();
     }
+
+    /*
+    Create a function that takes a number and returns its multiplicative persistence,
+    which is the number of times you must multiply the digits in num until you reach a single digit.
+     */
+
+    public static int bugger(int num) {
+        if (num < 10) return 0;
+        num = String.valueOf(num).chars().reduce(1, (a, b) -> a * (b - '0')); // Se resta o a b para convertirlo en int.
+        return 1 + bugger(num);
+    }
 }
