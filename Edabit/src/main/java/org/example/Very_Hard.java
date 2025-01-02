@@ -157,4 +157,16 @@ public class Very_Hard {
         return 1 + multiplicativePersistence(nuevoN);
         // Convierto int a un array de chars, parseo cada char a un numero y los multiplico, utilizo recursividad hasta que queda un solo digito para n.
     }
+
+    /*
+    Given a name, return the letter with the highest index in alphabetical order, with its corresponding index,
+    in the form of a string. You are prohibited to use max() nor is reassigning a value to the alphabet array.
+     */
+
+    public static String alphabetIndex(String[] alphabet, String s) {
+        for (int x = alphabet.length - 1; x > 0; x--) if (s.toLowerCase().contains(alphabet[x].toLowerCase())) return (x + 1) + alphabet[x];
+        return null;
+
+        // Recorro el alfabeto por detras, el primero que coincida es la letra de mayor indice.
+    }
 }
