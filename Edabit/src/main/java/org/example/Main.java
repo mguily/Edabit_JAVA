@@ -13,5 +13,5 @@ public class Main {
         System.out.println("\nDecrypted message: " + decrypted1);
     }
 
-    // Recuento de retos completados: 34 -> 3 Medium, 24 Hard, 7 Very Hard. (02/01/2025).
+    // Recuento de retos completados: 35 -> 3 Medium, 24 Hard, 8 Very Hard. (02/01/2025).
 }
