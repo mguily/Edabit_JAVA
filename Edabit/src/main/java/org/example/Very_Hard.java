@@ -168,4 +168,28 @@ public class Very_Hard {
 
         // Recorro el alfabeto por detras, el primero que coincida es la letra de mayor indice.
     }
+
+    /*
+    It's time to send and receive secret messages.
+
+    Create two functions that take a string and an array and returns a coded or decoded message.
+
+    The first letter of the string, or the first element of the array represents the Character Code of that letter.
+    The next elements are the differences between the characters: e.g. A +3 --> C or z -1 --> y.
+     */
+
+    public static int[] encrypt(String str) {
+        return IntStream.range(0, str.length()).map(i -> i == 0 ? str.charAt(i) : str.charAt(i) - str.charAt(i - 1)).toArray();
+    }
+
+    public static String decrypt(int[] arr) {
+        StringBuilder sb = new StringBuilder();
+        int currentChar = arr[0];
+        sb.append((char) currentChar);
+        for (int i = 1; i < arr.length; i++) {
+            currentChar += arr[i];
+            sb.append((char) currentChar);
+        }
+        return sb.toString();
+    }
 }
