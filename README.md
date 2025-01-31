@@ -3,11 +3,12 @@
 Este repositorio contiene soluciones a desafíos de **Edabit** en **Java**. Los ejercicios están organizados por niveles de dificultad y siguen una estructura basada en **Maven**.  
 
 ## 📌 Niveles de dificultad  
-- 🟢 **Very Easy** (pendiente de agregar)  
-- 🔵 **Easy** (pendiente de agregar)  
+- 🟢 **Very Easy**  
+- 🔵 **Easy**
 - 🟡 **Medium**  
 - 🔴 **Hard**  
-- 🟣 **Very Hard**  
+- 🟣 **Very Hard**
+- ⚫ **Expert** 
 
 ## 📂 Estructura del repositorio  
 ```bash
